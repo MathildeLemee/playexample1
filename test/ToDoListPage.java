@@ -3,14 +3,13 @@ import org.junit.Test;
 
 import play.test.TestBrowser;
 
-
 public class ToDoListPage extends FluentPage {
   
-//  TestBrowser browser;
+  TestBrowser browser;
   
-//  public ToDoListPage(TestBrowser browser) {
-//    this.browser = browser;
-//  }
+  public ToDoListPage(TestBrowser browser) {
+    this.browser = browser;
+  }
 
   public String getUrl() {
     return "http://localhost:3333/";

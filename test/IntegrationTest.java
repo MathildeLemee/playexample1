@@ -7,8 +7,8 @@ import static org.fest.assertions.Assertions.*;
 public class IntegrationTest {
 
   /**
-   * add your integration test here
-   * in this example we just check if the welcome page is being shown
+   * Checks that we can add a single task to the to do list.
+   * This test works.
    */   
   @Test
   public void test() {
@@ -23,11 +23,17 @@ public class IntegrationTest {
     });
   }
 
+  /**
+   * Also checks that we can add a single task to the to do list.
+   * Tries to use the Page Object Pattern:
+   * https://github.com/FluentLenium/FluentLenium#page-object-pattern
+   * This test does not work.
+   */   
   @Test
   public void testWithPage() {
     running(testServer(3333, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
       public void invoke(TestBrowser browser) {
-        ToDoListPage todopage = new ToDoListPage();
+        ToDoListPage todopage = new ToDoListPage(browser);
         browser.goTo(todopage);
         todopage.fillAndSubmitForm("Get Milk");
         todopage.isAt();
