@@ -1,15 +1,16 @@
 import org.fluentlenium.core.FluentPage;
-import org.junit.Test;
-
+ import org.openqa.selenium.WebDriver;
 import play.test.TestBrowser;
 
 public class ToDoListPage extends FluentPage {
- 
+  public ToDoListPage(WebDriver webDriver) {
+    super(webDriver);
+  }
+
   public String getUrl() {
-    return "tasks";
+    return "http://localhost:3333/tasks";
   }
   
-  @Test
   public void isAt() {
     //assert(title()).equals("Todo list");
   }
